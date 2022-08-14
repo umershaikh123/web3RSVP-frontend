@@ -1,7 +1,7 @@
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 
 const client = new ApolloClient({
-  uri: "https://api.thegraph.com/subgraphs/name/[YOUR_GITHUB]/[YOUR_SUBGRAPH]",
+  uri: "https://thegraph.com/hosted-service/subgraph/umershaikh123/main-wweb3-subgraph",
   cache: new InMemoryCache(),
 });
 
