@@ -7,6 +7,7 @@ import connectContract from "../utils/connectContract";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount } from "wagmi";
 import Alert from "../components/Alert";
+import Footer from "../components/Footer";
 
 export default function CreateEvent() {
   const { data: account } = useAccount();
@@ -43,7 +44,9 @@ export default function CreateEvent() {
       } else {
         console.log("Form successfully submitted!");
         let responseJSON = await response.json();
-        await createEvent(responseJSON.cid);
+        console.log(responseJSON.cid);
+        console.log("Responce ", responseJSON);
+        // await createEvent(responseJSON.cid);
       }
       // check response, if success is false, dont take them to success page
     } catch (error) {
@@ -269,8 +272,8 @@ export default function CreateEvent() {
                     type="text"
                     className="block max-w-lg w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md"
                     required
-                    value={eventLink}
-                    onChange={(e) => setEventLink(e.target.value)}
+                    // value={eventLink}
+                    // onChange={(e) => setEventLink(e.target.value)}
                   />
                 </div>
               </div>
@@ -290,8 +293,8 @@ export default function CreateEvent() {
                     name="about"
                     rows={10}
                     className="max-w-lg shadow-sm block w-full focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border border-gray-300 rounded-md"
-                    value={eventDescription}
-                    onChange={(e) => setEventDescription(e.target.value)}
+                    // value={eventDescription}
+                    // onChange={(e) => setEventDescription(e.target.value)}
                   />
                 </div>
               </div>
@@ -305,7 +308,7 @@ export default function CreateEvent() {
                 </Link>
                 <button
                   type="submit"
-                  className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="ml-3 inline-flex justify-center py-2 px-4 border  border-transparent shadow-sm text-sm font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Create
                 </button>
